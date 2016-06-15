@@ -34,9 +34,6 @@ public class Graph {
             this.Nodes[i] = tmp[i];
         }
         this.Nodes[this.Nodes.length - 1] = node;
-        for (Vertex Node : this.Nodes) {
-            System.out.println(Node);
-        }
     }
 
     public void addEdge(Edge Edge) {
@@ -46,9 +43,6 @@ public class Graph {
             this.Edges[i] = tmp[i];
         }
         this.Edges[this.Edges.length - 1] = Edge;
-        for (Edge Edge1 : this.Edges) {
-            System.out.println(Edge1);
-        }
     }
 
     public Vertex[] getVertex() {
