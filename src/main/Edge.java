@@ -6,11 +6,12 @@ package main;
  */
 public class Edge {
 
-    private Vertex start = null, end = null;
+    public Vertex start = null, end = null;
     private boolean type;
-    private int length, bandWidth;
-
-    public Edge(int length, int bandWidth, Vertex start, Vertex end) {
+    public int bandWidth;
+    public double length;
+    
+    public Edge(double length, int bandWidth, Vertex start, Vertex end) {
         this.length = length;
         this.bandWidth = bandWidth;
         this.start = start;
@@ -41,11 +42,11 @@ public class Edge {
         this.type = type;
     }
 
-    public int getLength() {
+    public double getLength() {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(double length) {
         this.length = length;
     }
 

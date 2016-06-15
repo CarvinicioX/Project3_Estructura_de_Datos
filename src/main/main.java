@@ -5,6 +5,7 @@
  */
 package main;
 
+import java.util.Collections;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
@@ -302,6 +303,45 @@ public class main extends javax.swing.JFrame {
                 new main().setVisible(true);
             }
         });
+    }
+    
+    public static void floyd(int[][]path){
+        for (int k = 0; k < path.length; k++) {
+            for (int i = 0; i < path.length; i++) {
+                for (int j = 0; j < path.length; j++) {
+                    path[i][j] = Math.min(path[i][j], path[i][k] + path[k][j]);
+                }
+            }
+        }
+    }
+    
+    public static void dijkstra(Vertex source){
+        source.minDistance = 0.;
+        Queue vertexQueue = new Queue();
+        vertexQueue.queue(source);
+        while (vertexQueue.size()!= 0) {
+            Vertex vertex = (Vertex)vertexQueue.dequeue().getValue();
+            for (Edge e : vertex.adjacencies) {
+                Vertex otherVertex = e.end;
+                double length = e.length;
+                double distanceThroughU = vertex.minDistance + length;
+                if (distanceThroughU < otherVertex.minDistance) {
+                    vertexQueue.dequeue();
+                    otherVertex.minDistance = distanceThroughU;
+                    otherVertex.previous = vertex;
+                    vertexQueue.queue(otherVertex);
+                }
+            }
+        }
+    }
+
+    public static List shortestPath(Vertex target) {
+        List path = new List();
+        for (Vertex vertex = target; vertex != null; vertex = vertex.previous) {
+            path.push_back(vertex);
+        }
+        Collections.reverseOrder();
+        return path;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
