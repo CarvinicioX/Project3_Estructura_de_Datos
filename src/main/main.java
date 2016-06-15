@@ -49,14 +49,27 @@ public class main extends javax.swing.JFrame {
         fiber = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        nodeUpdateDialog = new javax.swing.JDialog();
-        nodeDeleteDialog = new javax.swing.JDialog();
+        edgeAddDialog = new javax.swing.JDialog();
+        edgeAddNodeA = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        edgeAddNodeB = new javax.swing.JComboBox<>();
+        edgeAddLength = new javax.swing.JSpinner();
+        edgeAddBandWidth = new javax.swing.JSpinner();
+        coaxial1 = new javax.swing.JRadioButton();
+        fiber1 = new javax.swing.JRadioButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         bG = new javax.swing.ButtonGroup();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         jLabel1.setText("Nombre (Código)");
 
@@ -75,7 +88,6 @@ public class main extends javax.swing.JFrame {
         nodeAddBandWidth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 100, 1));
 
         bG.add(coaxial);
-        coaxial.setSelected(true);
         coaxial.setText("Cable Coaxial");
         coaxial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +105,7 @@ public class main extends javax.swing.JFrame {
 
         jLabel6.setText("Tipo de Conexión");
 
-        jButton1.setText("Agregar");
+        jButton1.setText("Construir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -108,28 +120,25 @@ public class main extends javax.swing.JFrame {
                 .addGroup(nodeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(nodeAddDialogLayout.createSequentialGroup()
                         .addContainerGap()
+                        .addGroup(nodeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5))
+                        .addGap(65, 65, 65)
                         .addGroup(nodeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nodeAddDialogLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(nodeAddBandWidth, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(nodeAddDialogLayout.createSequentialGroup()
-                                .addGroup(nodeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6))
-                                .addGap(99, 99, 99)
-                                .addGroup(nodeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(nodeAddDialogLayout.createSequentialGroup()
-                                        .addComponent(coaxial)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(fiber))
-                                    .addComponent(nodeAddNodeA, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(nodeAddName)
-                                    .addComponent(nodeAddType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(nodeAddLength, javax.swing.GroupLayout.Alignment.LEADING)))))
+                            .addComponent(nodeAddBandWidth)
+                            .addGroup(nodeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(nodeAddDialogLayout.createSequentialGroup()
+                                    .addComponent(coaxial)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(fiber))
+                                .addComponent(nodeAddNodeA, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(nodeAddName)
+                                .addComponent(nodeAddType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(nodeAddLength, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(nodeAddDialogLayout.createSequentialGroup()
                         .addGap(165, 165, 165)
                         .addComponent(jButton1)))
@@ -168,31 +177,109 @@ public class main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout nodeUpdateDialogLayout = new javax.swing.GroupLayout(nodeUpdateDialog.getContentPane());
-        nodeUpdateDialog.getContentPane().setLayout(nodeUpdateDialogLayout);
-        nodeUpdateDialogLayout.setHorizontalGroup(
-            nodeUpdateDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        nodeUpdateDialogLayout.setVerticalGroup(
-            nodeUpdateDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel7.setText("Nodo Emisor");
 
-        javax.swing.GroupLayout nodeDeleteDialogLayout = new javax.swing.GroupLayout(nodeDeleteDialog.getContentPane());
-        nodeDeleteDialog.getContentPane().setLayout(nodeDeleteDialogLayout);
-        nodeDeleteDialogLayout.setHorizontalGroup(
-            nodeDeleteDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jLabel8.setText("Nodo Receptor");
+
+        edgeAddLength.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+
+        edgeAddBandWidth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 100, 1));
+
+        bG.add(coaxial1);
+        coaxial1.setSelected(true);
+        coaxial1.setText("Cable Coaxial");
+        coaxial1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coaxial1ActionPerformed(evt);
+            }
+        });
+
+        bG.add(fiber1);
+        fiber1.setText("Fibra Optica");
+        fiber1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiber1ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Tipo de Conexión");
+
+        jLabel10.setText("Distancia (m)");
+
+        jLabel11.setText("Ancho de Banda (MB/s)");
+
+        jButton2.setText("Construir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout edgeAddDialogLayout = new javax.swing.GroupLayout(edgeAddDialog.getContentPane());
+        edgeAddDialog.getContentPane().setLayout(edgeAddDialogLayout);
+        edgeAddDialogLayout.setHorizontalGroup(
+            edgeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(edgeAddDialogLayout.createSequentialGroup()
+                .addGroup(edgeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(edgeAddDialogLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(edgeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7))
+                        .addGap(65, 65, 65)
+                        .addGroup(edgeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(edgeAddNodeB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(edgeAddBandWidth)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, edgeAddDialogLayout.createSequentialGroup()
+                                .addComponent(coaxial1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fiber1))
+                            .addComponent(edgeAddLength)
+                            .addComponent(edgeAddNodeA, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(edgeAddDialogLayout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(jButton2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        nodeDeleteDialogLayout.setVerticalGroup(
-            nodeDeleteDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        edgeAddDialogLayout.setVerticalGroup(
+            edgeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(edgeAddDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(edgeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(edgeAddNodeA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(edgeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(edgeAddLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(edgeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(coaxial1)
+                    .addComponent(fiber1)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(edgeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(edgeAddBandWidth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(edgeAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(edgeAddNodeB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TOGO Mapper");
         setResizable(false);
+
+        jButton3.setText("Análisis de Velocidad");
+
+        jButton4.setText("Análisis de Ancho de Banda");
 
         jMenu1.setText("Nodo");
 
@@ -204,13 +291,19 @@ public class main extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("Editar");
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem3.setText("Eliminar");
-        jMenu1.add(jMenuItem3);
-
         jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Conexión");
+
+        jMenuItem4.setText("Crear");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -218,11 +311,21 @@ public class main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 377, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton3)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -233,6 +336,7 @@ public class main extends javax.swing.JFrame {
         for (Vertex vertex : Graph.getVertex()) {
             this.nodeAddNodeA.addItem(vertex.getName() + ", " + vertex.getType());
         }
+        this.coaxial.setSelected(true);
         this.nodeAddDialog.pack();
         this.nodeAddDialog.setModal(true);
         this.nodeAddDialog.setVisible(true);
@@ -260,15 +364,66 @@ public class main extends javax.swing.JFrame {
         } else {
             this.Graph.addNode(new Vertex(this.nodeAddName.getText(), this.nodeAddType.getSelectedItem().toString()));
             System.out.println(this.nodeAddBandWidth.getValue().toString());
-            this.Graph.addEdge(new Edge(Integer.parseInt(this.nodeAddLength.getValue().toString()), Integer.parseInt(this.nodeAddBandWidth.getValue().toString()), this.Graph.getVertex()[this.nodeAddNodeA.getSelectedIndex()], this.Graph.getVertex()[this.Graph.getVertex().length - 1]));
+            Double length = Double.parseDouble(this.nodeAddLength.getValue().toString());
+            Double bandWidth = Double.parseDouble(this.nodeAddBandWidth.getValue().toString());
+            this.Graph.addEdge(new Edge(length.intValue(), bandWidth.intValue(), this.Graph.getVertex()[this.nodeAddNodeA.getSelectedIndex()], this.Graph.getVertex()[this.Graph.getVertex().length - 1]));
             this.nodeAddName.setText("");
             this.nodeAddType.setSelectedIndex(0);
             this.nodeAddNodeA.setSelectedIndex(0);
             this.nodeAddLength.setValue(1);
             this.coaxial.setSelected(true);
             this.nodeAddBandWidth.setValue(1);
+            this.nodeAddDialog.setModal(false);
+            this.nodeAddDialog.setVisible(false);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void coaxial1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coaxial1ActionPerformed
+        if (this.coaxial1.isSelected() && !this.fiber1.isSelected()) {
+            this.edgeAddBandWidth.setModel(new SpinnerNumberModel(1.0, 1.0, 100.0, 1.0));
+        } else {
+            this.edgeAddBandWidth.setModel(new SpinnerNumberModel(1.0, 1.0, 10240.0, 1.0));
+        }
+    }//GEN-LAST:event_coaxial1ActionPerformed
+
+    private void fiber1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiber1ActionPerformed
+        if (this.coaxial1.isSelected() && !this.fiber1.isSelected()) {
+            this.edgeAddBandWidth.setModel(new SpinnerNumberModel(1.0, 1.0, 100.0, 1.0));
+        } else {
+            this.edgeAddBandWidth.setModel(new SpinnerNumberModel(1.0, 1.0, 10240.0, 1.0));
+        }
+    }//GEN-LAST:event_fiber1ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        this.edgeAddNodeA.setModel(new DefaultComboBoxModel());
+        for (int i = 0; i < this.Graph.getVertex().length; i++) {
+            this.edgeAddNodeA.addItem(this.Graph.getVertex()[i].getName() + ", " + this.Graph.getVertex()[i].getType());
+        }
+        this.edgeAddNodeB.setModel(new DefaultComboBoxModel());
+        for (int i = 0; i < this.Graph.getVertex().length; i++) {
+            this.edgeAddNodeB.addItem(this.Graph.getVertex()[i].getName() + ", " + this.Graph.getVertex()[i].getType());
+        }
+        this.edgeAddDialog.pack();
+        this.edgeAddDialog.setModal(true);
+        this.edgeAddDialog.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (this.edgeAddNodeA.getSelectedIndex() == this.edgeAddNodeB.getSelectedIndex()) {
+            JOptionPane.showMessageDialog(this.nodeAddDialog, "No se pueden elegir los mismos Nodos", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Double length = Double.parseDouble(this.edgeAddLength.getValue().toString());
+            Double bandWidth = Double.parseDouble(this.edgeAddBandWidth.getValue().toString());
+            this.Graph.addEdge(new Edge(length.intValue(), bandWidth.intValue(), this.Graph.getVertex()[this.edgeAddNodeA.getSelectedIndex()], this.Graph.getVertex()[this.edgeAddNodeB.getSelectedIndex()]));
+            this.edgeAddNodeA.setSelectedIndex(0);
+            this.edgeAddNodeB.setSelectedIndex(0);
+            this.edgeAddLength.setValue(1);
+            this.coaxial1.setSelected(true);
+            this.edgeAddBandWidth.setValue(1);
+            this.edgeAddDialog.setModal(false);
+            this.edgeAddDialog.setVisible(false);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,7 +436,7 @@ public class main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -304,8 +459,8 @@ public class main extends javax.swing.JFrame {
             }
         });
     }
-    
-    public static void floyd(int[][]path){
+
+    public static void floyd(int[][] path) {
         for (int k = 0; k < path.length; k++) {
             for (int i = 0; i < path.length; i++) {
                 for (int j = 0; j < path.length; j++) {
@@ -314,13 +469,13 @@ public class main extends javax.swing.JFrame {
             }
         }
     }
-    
-    public static void dijkstra(Vertex source){
+
+    public static void dijkstra(Vertex source) {
         source.minDistance = 0.;
         Queue vertexQueue = new Queue();
         vertexQueue.queue(source);
-        while (vertexQueue.size()!= 0) {
-            Vertex vertex = (Vertex)vertexQueue.dequeue().getValue();
+        while (vertexQueue.size() != 0) {
+            Vertex vertex = (Vertex) vertexQueue.dequeue().getValue();
             for (Edge e : vertex.adjacencies) {
                 Vertex otherVertex = e.end;
                 double length = e.length;
@@ -347,26 +502,39 @@ public class main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bG;
     private javax.swing.JRadioButton coaxial;
+    private javax.swing.JRadioButton coaxial1;
+    private javax.swing.JSpinner edgeAddBandWidth;
+    private javax.swing.JDialog edgeAddDialog;
+    private javax.swing.JSpinner edgeAddLength;
+    private javax.swing.JComboBox<String> edgeAddNodeA;
+    private javax.swing.JComboBox<String> edgeAddNodeB;
     private javax.swing.JRadioButton fiber;
+    private javax.swing.JRadioButton fiber1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JSpinner nodeAddBandWidth;
     private javax.swing.JDialog nodeAddDialog;
     private javax.swing.JSpinner nodeAddLength;
     private javax.swing.JTextField nodeAddName;
     private javax.swing.JComboBox<String> nodeAddNodeA;
     private javax.swing.JComboBox<String> nodeAddType;
-    private javax.swing.JDialog nodeDeleteDialog;
-    private javax.swing.JDialog nodeUpdateDialog;
     // End of variables declaration//GEN-END:variables
 }

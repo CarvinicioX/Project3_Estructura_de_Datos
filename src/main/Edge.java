@@ -9,9 +9,9 @@ public class Edge {
     public Vertex start = null, end = null;
     private boolean type;
     public int bandWidth;
-    public double length;
-    
-    public Edge(double length, int bandWidth, Vertex start, Vertex end) {
+    public int length;
+
+    public Edge(int length, int bandWidth, Vertex start, Vertex end) {
         this.length = length;
         this.bandWidth = bandWidth;
         this.start = start;
@@ -42,11 +42,11 @@ public class Edge {
         this.type = type;
     }
 
-    public double getLength() {
+    public int getLength() {
         return length;
     }
 
-    public void setLength(double length) {
+    public void setLength(int length) {
         this.length = length;
     }
 
