@@ -6,7 +6,7 @@ package main;
  */
 public class Vertex {
 
-    String name = "", type = "";
+    private String name = "", type = "";
 
     public Vertex(String Name, String Type) {
         this.name = Name;

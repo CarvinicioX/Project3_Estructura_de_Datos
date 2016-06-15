@@ -6,14 +6,15 @@ package main;
  */
 public class Edge {
 
-    Vertex start = null;
-    Vertex end = null;
-    boolean type;
-    int length, bandWidth;
+    private Vertex start = null, end = null;
+    private boolean type;
+    private int length, bandWidth;
 
-    public Edge(int length, int bandWidth) {
+    public Edge(int length, int bandWidth, Vertex start, Vertex end) {
         this.length = length;
         this.bandWidth = bandWidth;
+        this.start = start;
+        this.end = end;
     }
 
     public Vertex getStart() {
