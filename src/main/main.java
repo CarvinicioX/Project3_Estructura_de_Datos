@@ -5,10 +5,18 @@
  */
 package main;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Collections;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -21,6 +29,7 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     Graph Graph = new Graph();
@@ -38,9 +47,9 @@ public class main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         nodeAddName = new javax.swing.JTextField();
-        nodeAddType = new javax.swing.JComboBox<>();
+        nodeAddType = new javax.swing.JComboBox<String>();
         jLabel3 = new javax.swing.JLabel();
-        nodeAddNodeA = new javax.swing.JComboBox<>();
+        nodeAddNodeA = new javax.swing.JComboBox<String>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         nodeAddLength = new javax.swing.JSpinner();
@@ -50,10 +59,10 @@ public class main extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         edgeAddDialog = new javax.swing.JDialog();
-        edgeAddNodeA = new javax.swing.JComboBox<>();
+        edgeAddNodeA = new javax.swing.JComboBox<String>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        edgeAddNodeB = new javax.swing.JComboBox<>();
+        edgeAddNodeB = new javax.swing.JComboBox<String>();
         edgeAddLength = new javax.swing.JSpinner();
         edgeAddBandWidth = new javax.swing.JSpinner();
         coaxial1 = new javax.swing.JRadioButton();
@@ -65,6 +74,8 @@ public class main extends javax.swing.JFrame {
         bG = new javax.swing.ButtonGroup();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -75,7 +86,7 @@ public class main extends javax.swing.JFrame {
 
         jLabel2.setText("Punto de Nodo");
 
-        nodeAddType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Repetidor de Red Doméstica", "Repetidor de Red Empresarial", "Antena Celular", "Conexión Dedicada" }));
+        nodeAddType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Repetidor de Red Doméstica", "Repetidor de Red Empresarial", "Antena Celular", "Conexión Dedicada" }));
 
         jLabel3.setText("Nodo Adjunto");
 
@@ -83,7 +94,7 @@ public class main extends javax.swing.JFrame {
 
         jLabel5.setText("Ancho de Banda (MB/s)");
 
-        nodeAddLength.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        nodeAddLength.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         nodeAddBandWidth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 100, 1));
 
@@ -181,7 +192,7 @@ public class main extends javax.swing.JFrame {
 
         jLabel8.setText("Nodo Receptor");
 
-        edgeAddLength.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        edgeAddLength.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         edgeAddBandWidth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 100, 1));
 
@@ -281,6 +292,15 @@ public class main extends javax.swing.JFrame {
 
         jButton4.setText("Análisis de Ancho de Banda");
 
+        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Christian\\Pictures\\Diagrama_red_web.jpg")); // NOI18N
+
+        jButton5.setText("Guardar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("Nodo");
 
         jMenuItem1.setText("Agregar");
@@ -313,19 +333,32 @@ public class main extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addContainerGap(81, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton4)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(232, 232, 232))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(277, 277, 277))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addComponent(jButton3)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addContainerGap())
         );
 
         pack();
@@ -425,6 +458,37 @@ public class main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        guardar();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    public void guardar() {
+        JFileChooser jf = new JFileChooser();
+        jf.setFileFilter(new FileNameExtensionFilter("Graph", ".txt"));
+        File Dir = null;
+        while (Dir == null) {
+            int Dar = jf.showSaveDialog(null);
+            if (Dar == JFileChooser.APPROVE_OPTION) {
+                Dir = jf.getCurrentDirectory();
+            }
+        }
+        String out = "";
+        for (int i = 0; i < this.Graph.getVertex().length; i++) {
+            out += this.Graph.getVertex()[i].toString() + ",";
+        }
+        out += ";";
+        for (int i = 0; i < this.Graph.getEdge().length; i++) {
+            out += this.Graph.getEdge()[i].toString() + ",";
+        }
+        try {
+            PrintWriter fo = new PrintWriter(new FileWriter(Dir));
+            fo.println(out);
+            fo.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -498,6 +562,7 @@ public class main extends javax.swing.JFrame {
         Collections.reverseOrder();
         return path;
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bG;
@@ -514,9 +579,11 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
